@@ -9,8 +9,3 @@
   padding: 30px 0;
   overflow: auto;
 }
-
-.main-footer {
-  background-color: var(--primary-color);
-  padding: 10px 0;
-}
