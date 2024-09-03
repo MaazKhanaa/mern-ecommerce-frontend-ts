@@ -1,9 +1,10 @@
 import React, { FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useLoginUserMutation } from '../service/api';
-import { ValidationSchema } from '../utils/validation';
 import { Button, Card, FormInput, MainHeading } from 'src/common';
 import { useForm } from 'src/hooks';
+import { useLoginUserMutation } from 'src/service';
+import { ValidationSchema } from 'src/utils';
+import { toast } from 'react-toastify';
 
 // Define the validation schema
 const validationSchema: ValidationSchema = {
@@ -44,11 +45,11 @@ export const Login: React.FC = () => {
         localStorage.setItem('token', JSON.stringify(result.auth));
         navigate('/');
       } else {
-        alert('Incorrect email or password');
+        toast.error('Incorrect email or password');
       }
     } catch (error) {
       console.error('Login failed', error);
-      alert('Login failed. Please check your credentials and try again.');
+        toast.error('Login failed. Please check your credentials and try again.');
     }
   };
 

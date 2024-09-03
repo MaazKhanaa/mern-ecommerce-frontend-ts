@@ -1,12 +1,13 @@
 import React, { FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useSignUpUserMutation } from "../service/api";
 import { Button, Card, FormInput, MainHeading } from "src/common";
 import { useForm } from "src/hooks";
 import { FormState } from "src/interfaces";
 import { toast } from 'react-toastify';
+import { useSignUpUserMutation } from "src/service";
+import { ValidationSchema } from "src/utils";
 
-const validationSchema = {
+const validationSchema: ValidationSchema = {
   name: {
     required: true,
     minLength: 1,
