@@ -4,8 +4,9 @@ import { useForm } from 'src/hooks';
 import { Product } from 'src/interfaces';
 import { useAddProductMutation } from 'src/service';
 import { toast } from 'react-toastify';
+import { ValidationSchema } from 'src/utils';
 
-const validationSchema = {
+const validationSchema: ValidationSchema = {
   name: {
     required: true,
     minLength: 1,
